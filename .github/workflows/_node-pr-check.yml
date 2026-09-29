@@ -55,7 +55,7 @@ jobs:
         run: cd ${{ inputs.service-dir }} && npx eslint src/ --ext .js,.jsx --max-warnings 0
 
       - name: Initialize CodeQL
-        uses: github/codeql-action/init@v3
+        uses: github/codeql-action/init@v4
         with:
           languages: javascript
           queries: security-extended
@@ -74,7 +74,7 @@ jobs:
           retention-days: 3
 
       - name: CodeQL — Analyze
-        uses: github/codeql-action/analyze@v3
+        uses: github/codeql-action/analyze@v4
         with:
           category: /language:javascript
 
