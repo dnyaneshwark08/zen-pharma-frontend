@@ -91,7 +91,7 @@ jobs:
 
       # ── Initialize CodeQL tracer BEFORE npm test ──────────────────────────────
       - name: Initialize CodeQL
-        uses: github/codeql-action/init@v3
+        uses: github/codeql-action/init@v4
         with:
           languages: javascript
           queries: security-extended
@@ -112,7 +112,7 @@ jobs:
 
       # ── CodeQL analysis ───────────────────────────────────────────────────────
       - name: CodeQL — Analyze
-        uses: github/codeql-action/analyze@v3
+        uses: github/codeql-action/analyze@v4
         with:
           category: /language:javascript
 
@@ -153,7 +153,7 @@ jobs:
 
       - name: Upload Trivy SARIF to GitHub Security tab
         if: always()
-        uses: github/codeql-action/upload-sarif@v3
+        uses: github/codeql-action/upload-sarif@v4
         with:
           sarif_file: trivy-results.sarif
           category: trivy-${{ inputs.service-name }}
